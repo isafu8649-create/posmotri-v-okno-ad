@@ -96,12 +96,11 @@ ol {
   object-position: center;
 }
 
-/* ===== ФОРМА ПОИСКА ===== */
+/* ===== ФОРМА ПОИСКА ПО МАКЕТУ ===== */
 .search-form {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: flex-start;
+  gap: 40px;
+  align-items: flex-end;
 }
 
 .search-form__fieldset {
@@ -116,9 +115,9 @@ ol {
   font-size: 18px;
   font-weight: 400;
   color: #fff;
+  margin-bottom: 5px;
 }
 
-/* ЧЕКБОКСЫ */
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
@@ -129,7 +128,7 @@ ol {
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  position: relative;
+  white-space: nowrap;
 }
 
 /* Скрываем настоящие чекбоксы */
@@ -168,7 +167,7 @@ ol {
   color: #fff;
 }
 
-/* ПОЛЕ ВВОДА ГОРОДА */
+/* Поле ввода города */
 .search-form__textfield {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
@@ -210,6 +209,7 @@ ol {
   height: 298px;
   overflow-y: auto;
   position: relative;
+  padding-right: 5px;
 }
 
 .content__list {
@@ -292,8 +292,7 @@ ol {
 }
 
 .search-form__submit-button {
-  margin-top: 10px;
-  align-self: flex-start;
+  padding: 6px 73px;
 }
 
 .more-button {
@@ -351,8 +350,8 @@ ol {
   outline-offset: 1px;
 }
 
-.search-form__label:hover .search-form__label-text {
-  text-decoration: underline;
+.search-form__pseudo-checkbox:hover {
+  border-color: #545050;
 }
 
 .search-form__textfield:active {
