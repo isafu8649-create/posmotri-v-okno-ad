@@ -1,167 +1,70 @@
-/* ОСНОВНОЙ КОНТЕЙНЕР */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  block-size: 100%;
+}
+
 .page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 133px 30px;
+  inline-size: 1200px;
+  block-size: 100%;
+  margin: auto;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  background-color: #1b1919;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+li,
+blockquote,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Кастомный скроллбар */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgb(217 217 217 / 10%);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #D9D9D9;
+}
+/* ШАГ 1: ЛЕЙАУТ */
 .content {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
-  max-width: 1140px;
-  width: 100%;
+  padding: 20px;
 }
 
-/* ЛЕВАЯ КОЛОНКА (711px) - ВИДЕО И ФОРМА */
 .result {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
-.result__video-container {
-  width: 100%;
-  height: 386px;
-  position: relative;
-  margin-bottom: 16px;
-}
-
-.result__video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ФОРМА ПОИСКА */
-.search-form {
-  display: flex;
-  gap: 40px;
-  align-items: flex-end;
-}
-
-.search-form__fieldset {
-  border: none;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  flex: 1;
-}
-
-.search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff;
-}
-
-.search-form__checkbox-list {
-  display: flex;
-  gap: 15px;
-}
-
-/* ПРАВАЯ КОЛОНКА (399px) - ЗАГОЛОВОК И КАРТОЧКИ */
 .content__details {
-  width: 399px;
-  flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  gap: 26px;
-}
-
-/* ЗАГОЛОВОК */
-.title {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 75px;
-  line-height: 0.94;
-  text-transform: uppercase;
-  color: #fff;
-}
-
-.content__accent {
-  color: #545050;
-}
-
-/* СПИСОК КАРТОЧЕК */
-.content__list-container {
-  height: 298px;
-  overflow-y: auto;
-  position: relative;
-}
-
-.content__list {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* КАРТОЧКИ ВИДЕО */
-.content__video-card {
-  display: flex;
-  gap: 15px;
-  padding: 2px;
-}
-
-.content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
-  flex-shrink: 0;
-}
-
-.content__video-card-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.content__video-card-description-container {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.content__video-card-title {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #fff;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.content__video-card-description {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 16.2px;
-  color: #fff;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* КНОПКА ПОКАЗАТЬ ЕЩЁ */
-.more-button {
-  width: 100%;
-  margin-top: 30px;
-}
-
-/* ВИЗУАЛЬНО СКРЫТЫЕ ЭЛЕМЕНТЫ */
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
+  gap: 20px;
 }
