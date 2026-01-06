@@ -154,3 +154,112 @@ ol {
   width: 100%;
   margin-top: 30px;
 }
+
+/* ШАГ 3: СТИЛИ ТЕКСТОВ */
+
+/* Главный заголовок */
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 0.94;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+/* Заголовки в форме (Город, Время суток) */
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+}
+
+/* Заголовки карточек */
+.content__video-card-title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Описание карточек */
+.content__video-card-description {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 16.2px;
+  color: #fff;
+}
+
+/* Ссылки карточек */
+.content__card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* ШАГ 4: БАЗОВЫЕ СТИЛИ ФОРМЫ */
+
+/* Поле ввода города */
+.search-form__textfield {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  padding: 2px 0;
+  width: 100%;
+  appearance: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+/* Чекбоксы - базовая обёртка */
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+/* Кастомные чекбоксы (пока просто квадратики) */
+.search-form__pseudo-checkbox {
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Кнопка "Найти" */
+.button {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+  border: 1px solid #fff;
+  padding: 6px 73px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
