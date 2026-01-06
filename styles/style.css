@@ -1,124 +1,53 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  block-size: 100%;
-}
-
-.page {
-  inline-size: 1200px;
-  block-size: 100%;
-  margin: auto;
-  color: #fff;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  background-color: #1b1919;
-}
-
-h1,
-h2,
-h3,
-h4,
-p,
-ul,
-ol,
-li,
-blockquote,
-fieldset {
-  margin: 0;
-  padding: 0;
-}
-
-ul,
-ol {
-  list-style: none;
-}
-
-/* Кастомный скроллбар */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgb(217 217 217 / 10%);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #D9D9D9;
-}
-
-/* ИСПРАВЛЕННЫЙ ЛЕЙАУТ ПО ФОТО */
-
+/* ОСНОВНОЙ КОНТЕЙНЕР */
 .page {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 133px 30px;
 }
 
 .content {
-  display: grid;
-  grid-template-areas:
-    "video video"
-    "form cards";
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 40px;
+  display: flex;
+  gap: 30px;
   max-width: 1140px;
   width: 100%;
 }
 
+/* ЛЕВАЯ КОЛОНКА (711px) - ВИДЕО И ФОРМА */
+.result {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .result__video-container {
-  grid-area: video;
   width: 100%;
   height: 386px;
   position: relative;
-}
-
-.search-form {
-  grid-area: form;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.content__details {
-  grid-area: cards;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.content__list-container {
-  flex-grow: 1;
-  overflow-y: auto;
-  max-height: 298px;
-  position: relative;
-}
-
-.result {
-  grid-area: details;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  margin-bottom: 16px;
 }
 
 .result__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+}
+
+/* ФОРМА ПОИСКА */
+.search-form {
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
 }
 
 .search-form__fieldset {
   border: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+  flex: 1;
 }
 
 .search-form__fieldset-title {
@@ -133,27 +62,46 @@ ol {
   gap: 15px;
 }
 
+/* ПРАВАЯ КОЛОНКА (399px) - ЗАГОЛОВОК И КАРТОЧКИ */
+.content__details {
+  width: 399px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+/* ЗАГОЛОВОК */
+.title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 75px;
+  line-height: 0.94;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+/* СПИСОК КАРТОЧЕК */
+.content__list-container {
+  height: 298px;
+  overflow-y: auto;
+  position: relative;
+}
+
 .content__list {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-/* Стили для визуально скрытых элементов */
-.visually-hidden {
-  position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-/* Карточки видео */
+/* КАРТОЧКИ ВИДЕО */
 .content__video-card {
   display: flex;
-  gap: 10px;
+  gap: 15px;
   padding: 2px;
 }
 
@@ -175,52 +123,8 @@ ol {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 0; /* Для корректного обрезания текста */
 }
 
-/* Кнопка Показать ещё */
-.more-button {
-  width: 100%;
-  margin-top: 30px;
-}
-
-/* Прелоадеры */
-.preloader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 10;
-}
-
-/* Заголовок */
-.title {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  font-size: 75px;
-  line-height: 0.94;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 20px;
-}
-
-.content__accent {
-  color: #545050;
-}
-
-/* Ссылки карточек */
-.content__card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-/* Заголовки карточек */
 .content__video-card-title {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
@@ -228,13 +132,11 @@ ol {
   line-height: 1;
   text-transform: uppercase;
   color: #fff;
-  margin-bottom: 6px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-/* Описание карточек */
 .content__video-card-description {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-weight: 400;
@@ -247,11 +149,19 @@ ol {
   overflow: hidden;
 }
 
-/* Заголовки формы */
-.search-form__fieldset-title {
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #fff;
-  margin-bottom: 5px;
+/* КНОПКА ПОКАЗАТЬ ЕЩЁ */
+.more-button {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* ВИЗУАЛЬНО СКРЫТЫЕ ЭЛЕМЕНТЫ */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
